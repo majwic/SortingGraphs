@@ -6,6 +6,8 @@
 #include <algorithm>
 #include <chrono>
 
+#include "TimSort.h"
+#include "ShellSort.h"
 #include "HeapSort.h"
 #include "QuickSort.h"
 #include "StrandSort.h"
@@ -40,6 +42,22 @@ int main(int argc, char *argv[]) {
   cbreak();
   curs_set(0);
 
+  TimSort tmSort;
+  tmSort.setVect(mess);
+  clear();
+  tmSort.printSort();
+  mvprintw(0, 0, "%d ms -- TimSort", tmSort.getTime(messLong));
+
+  getch();
+  
+  ShellSort shlSort;
+  shlSort.setVect(mess);
+  clear();
+  shlSort.printSort();
+  mvprintw(0, 0, "%d ms -- ShellSort", shlSort.getTime(messLong));
+
+  getch();
+  
   HeapSort hpSort;
   hpSort.setVect(mess);
   clear();
